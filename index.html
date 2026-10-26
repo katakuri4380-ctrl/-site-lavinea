@@ -2,191 +2,617 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Lavínea 💗</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe8f1">
+<title>Para Lavínea 💗</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      color: #713b60;
-      text-align: center;
-      background: linear-gradient(135deg, #ffe1ed, #eee2ff, #fff1f6);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+:root {
+  --rosa: #e982b0;
+  --rosa-escuro: #b95082;
+  --lilas: #e9ddff;
+  --texto: #75445f;
+  --branco: rgba(255,255,255,.88);
+}
 
-    header {
-      padding: 40px 18px 20px;
-    }
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--texto);
+  background: linear-gradient(140deg, #ffe5ef, #f2e6ff, #fff7fb);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    h1 {
-      font-size: 2.3rem;
-      margin-bottom: 8px;
-    }
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
 
-    .subtitulo {
-      font-size: 1.05rem;
-    }
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
 
-    .cartao {
-      background: rgba(255,255,255,0.82);
-      margin: 18px auto;
-      padding: 25px 20px;
-      width: 90%;
-      max-width: 520px;
-      border-radius: 24px;
-      box-shadow: 0 8px 25px #c78bb633;
-    }
+.tela {
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    h2 {
-      color: #c0528c;
-    }
+.painel {
+  width: 100%;
+  max-width: 540px;
+  padding: 28px 22px;
+  background: var(--branco);
+  border: 1px solid white;
+  border-radius: 28px;
+  box-shadow: 0 12px 45px #c77ba52b;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 
-    p {
-      line-height: 1.8;
-    }
+.simbolo {
+  font-size: 36px;
+  margin-bottom: 14px;
+}
 
-    button {
-      background: #e875aa;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      padding: 13px 22px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin: 10px;
-    }
+h1 {
+  color: var(--rosa-escuro);
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
 
-    button:hover {
-      background: #ca528c;
-    }
+h2 {
+  color: var(--rosa-escuro);
+  font-size: 1.55rem;
+  margin-bottom: 18px;
+}
 
-    #surpresa {
-      display: none;
-      margin-top: 18px;
-      font-size: 1.1rem;
-    }
+p {
+  line-height: 1.8;
+}
 
-    iframe {
-      width: 100%;
-      border: none;
-      border-radius: 14px;
-    }
+.intro {
+  margin-bottom: 22px;
+}
 
-    .rodape {
-      padding: 25px 12px;
-    }
+.progresso-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: .92rem;
+  margin-bottom: 8px;
+}
 
-    .coracao {
-      position: fixed;
-      bottom: -30px;
-      pointer-events: none;
-      animation: subir 7s linear forwards;
-      z-index: -1;
-    }
+.barra-fundo {
+  height: 10px;
+  background: #f7dce9;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
 
-    @keyframes subir {
-      from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.9;
-      }
-      to {
-        transform: translateY(-110vh) rotate(35deg);
-        opacity: 0;
-      }
-    }
-  </style>
+.barra {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #e982b0, #ba85db);
+  border-radius: inherit;
+  transition: width .3s ease;
+}
+
+.pergunta {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 18px 0;
+}
+
+.opcoes {
+  display: grid;
+  gap: 11px;
+}
+
+.opcao {
+  width: 100%;
+  padding: 14px 12px;
+  color: var(--texto);
+  background: #fff6fa;
+  border: 2px solid #f3d5e4;
+  border-radius: 16px;
+  font-size: 1rem;
+  transition: .2s;
+}
+
+.opcao:hover, .opcao:focus-visible {
+  border-color: var(--rosa);
+  background: #ffedf5;
+}
+
+.opcao.selecionada {
+  background: #fce0ed;
+  border-color: var(--rosa-escuro);
+  box-shadow: 0 0 0 2px #f8c8de55;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(135deg, #ed91b9, #bd6da7);
+  font-size: 1rem;
+  box-shadow: 0 6px 18px #c86d9b30;
+}
+
+.botao:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.aviso {
+  min-height: 24px;
+  margin-top: 12px;
+  font-size: .92rem;
+  color: #b95082;
+}
+
+#site {
+  display: none;
+  animation: aparecer .8s ease;
+}
+
+.cabecalho {
+  text-align: center;
+  padding: 65px 20px 30px;
+}
+
+.cabecalho p {
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.cartao {
+  position: relative;
+  width: 90%;
+  max-width: 570px;
+  margin: 24px auto;
+  padding: 30px 23px;
+  border-radius: 25px;
+  background: var(--branco);
+  border: 1px solid white;
+  box-shadow: 0 10px 35px #be739d20;
+  text-align: center;
+}
+
+.texto-carta {
+  font-size: 1.08rem;
+  line-height: 2;
+}
+
+.decoracao {
+  margin-top: 22px;
+  font-size: 25px;
+}
+
+#mensagem-surpresa {
+  display: none;
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #fff0f7;
+  line-height: 1.9;
+  animation: aparecer .5s ease;
+}
+
+.spotify-descricao {
+  margin-bottom: 18px;
+  line-height: 1.8;
+}
+
+.spotify {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+}
+
+.link-spotify {
+  display: inline-block;
+  color: var(--rosa-escuro);
+  margin-top: 17px;
+  line-height: 1.7;
+}
+
+.rodape {
+  text-align: center;
+  padding: 35px 15px 55px;
+  color: #b45e89;
+  line-height: 2;
+  font-size: 1.1rem;
+}
+
+.coracao {
+  position: fixed;
+  bottom: -40px;
+  pointer-events: none;
+  z-index: 0;
+  animation: flutuar linear forwards;
+}
+
+.escondido {
+  display: none !important;
+}
+
+@keyframes flutuar {
+  from {
+    transform: translateY(0) rotate(0);
+    opacity: .9;
+  }
+  to {
+    transform: translateY(-115vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 380px) {
+  .painel, .cartao {
+    padding: 24px 16px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <h1>Para Lavínea 💗</h1>
-    <p class="subtitulo">Um cantinho feito especialmente para você 🌷</p>
+
+<!-- TELA INICIAL: JOGUINHO -->
+<section class="tela" id="entrada">
+  <div class="painel">
+    <div class="simbolo">💌 🌷 💗</div>
+
+    <h1>Oi, Lavínea!</h1>
+
+    <p class="intro">
+      Preparei uma coisinha especial para você.
+      Mas antes de entrar, quero te convidar para
+      um pequeno desafio. 💕<br><br>
+      Responda às cinco perguntinhas para desbloquear
+      seu cantinho especial!
+    </p>
+
+    <div class="progresso-info">
+      <span id="contador">Pergunta 1 de 5</span>
+      <span id="porcentagem">0%</span>
+    </div>
+
+    <div
+      class="barra-fundo"
+      role="progressbar"
+      aria-label="Progresso das perguntas"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      id="barra-acessivel">
+      <div class="barra" id="barra"></div>
+    </div>
+
+    <div id="area-pergunta">
+      <h2>Vamos começar? ✨</h2>
+      <p class="pergunta" id="texto-pergunta">
+        Qual música foi escolhida para este cantinho?
+      </p>
+      <div class="opcoes" id="opcoes"></div>
+      <p class="aviso" id="aviso" aria-live="polite">
+        Escolha uma opção para continuar 💗
+      </p>
+      <button class="botao" id="continuar" disabled>
+        Próxima pergunta 🌸
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- SITE QUE SERÁ DESBLOQUEADO -->
+<div id="site">
+
+  <header class="cabecalho">
+    <div class="simbolo">💗 🌷 💗</div>
+    <h1>Para Lavínea</h1>
+    <p>
+      Você desbloqueou seu cantinho especial!<br>
+      Espero que goste de cada detalhe. 💌
+    </p>
   </header>
 
-  <section class="cartao">
-    <h2>Uma cartinha para você 💌</h2>
+  <main>
 
-    <p>
-      Lavínea, fiz este pequeno cantinho para guardar um pouco
-      do carinho que tenho por você. Espero que cada detalhe
-      te faça sorrir e lembre o quanto você é especial. 💕
-    </p>
+    <section class="cartao">
+      <h2>Uma cartinha para você 💌</h2>
 
-    <p>
-      Entre palavras, músicas e pequenos momentos, quero que
-      este site seja uma lembrança bonita para você. 🌸
-    </p>
-  </section>
+      <div class="texto-carta">
+        Lavínea, fiz este pequeno cantinho pensando em você. 💗
 
-  <section class="cartao">
-    <h2>Uma surpresa para você 🎀</h2>
+        <br><br>
 
-    <p>Tem uma mensagem escondida aqui...</p>
+        Queria transformar um pouquinho de carinho em algo
+        que você pudesse guardar e visitar quando quisesse.
 
-    <button onclick="mostrarSurpresa()">
-      Abrir surpresa 💗
-    </button>
+        <br><br>
 
-    <div id="surpresa">
-      Você merece coisas lindas, momentos felizes
-      e muitos motivos para sorrir. 💖🌷
-    </div>
-  </section>
+        Espero que este site te faça sorrir e deixe seu dia
+        um pouquinho mais bonito. Você merece momentos
+        especiais, carinho de verdade e muitos motivos
+        para ser feliz. 🌷
 
-  <section class="cartao">
-    <h2>Nossa música 🎧</h2>
+        <br><br>
 
-    <p>#pensando — chard la plaga</p>
+        Que cada visita a este cantinho seja uma lembrança
+        bonita e um motivo a mais para sorrir. 💕
 
-    <iframe
-      src="https://open.spotify.com/embed/playlist/37i9dQZF1E4uX1ND1v1Ym5?utm_source=generator"
-      height="352"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
+      </div>
 
-    <p>
+      <div class="decoracao">♡ ⋆｡°✩ ♡</div>
+    </section>
+
+    <section class="cartao">
+      <h2>Uma surpresa 🎀</h2>
+
+      <p class="texto-carta">
+        Você chegou até aqui... mas ainda tem uma
+        mensagenzinha esperando por você.
+      </p>
+
+      <button
+        class="botao"
+        id="botao-surpresa"
+        onclick="mostrarSurpresa()">
+        Abrir surpresa 💗
+      </button>
+
+      <div id="mensagem-surpresa">
+        🌷 Que nunca faltem motivos para sorrir,
+        sonhos para realizar e momentos bonitos
+        para lembrar. Você merece coisas lindas! 💖
+        <br><br>
+        Um pequeno presente feito com carinho para você. 💌
+      </div>
+    </section>
+
+    <section class="cartao">
+      <h2>Uma música especial 🎧</h2>
+
+      <p class="spotify-descricao">
+        <strong>See You Again</strong><br>
+        Tyler, The Creator feat. Kali Uchis 💗
+      </p>
+
+      <iframe
+        class="spotify"
+        title="See You Again no Spotify"
+        src="https://open.spotify.com/embed/track/7KA4W4McWYRpgf0fWsJZWB?utm_source=generator"
+        height="152"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+
       <a
-        href="https://open.spotify.com/search/%23pensando%20chard%20la%20plaga"
+        class="link-spotify"
+        href="https://open.spotify.com/track/7KA4W4McWYRpgf0fWsJZWB"
         target="_blank"
         rel="noopener noreferrer">
-        Abrir #pensando no Spotify 🎵
+        Ouvir diretamente no Spotify 🎵
       </a>
-    </p>
-  </section>
+    </section>
+
+  </main>
 
   <footer class="rodape">
     Feito com carinho para Lavínea 💗
+    <br>
+    🌷 Que nunca faltem motivos para sorrir. 🌷
+    <div class="decoracao">♡</div>
   </footer>
+</div>
 
-  <script>
-    function mostrarSurpresa() {
-      const surpresa = document.getElementById("surpresa");
-      surpresa.style.display =
-        surpresa.style.display === "block" ? "none" : "block";
+<script>
+const perguntas = [
+  {
+    texto: "Qual música foi escolhida para este cantinho?",
+    opcoes: [
+      "See You Again 🎧",
+      "Uma música aleatória 🎶",
+      "Ainda não sei 🌸"
+    ]
+  },
+  {
+    texto: "Qual é a vibe deste site?",
+    opcoes: [
+      "Romântica 💗",
+      "Terror 👻",
+      "Futebol ⚽"
+    ]
+  },
+  {
+    texto: "O que você encontrará aqui?",
+    opcoes: [
+      "Uma cartinha 💌",
+      "Uma prova de matemática 📚",
+      "Um boletim escolar 📝"
+    ]
+  },
+  {
+    texto: "Qual é o tema das cores?",
+    opcoes: [
+      "Rosa e lilás 🌷",
+      "Preto e cinza 🖤",
+      "Verde e amarelo 💚"
+    ]
+  },
+  {
+    texto: "Preparada para a surpresa?",
+    opcoes: [
+      "Simmm 💕",
+      "Pode liberar! 🎀",
+      "Com certeza 🌸"
+    ]
+  }
+];
+
+let perguntaAtual = 0;
+let respostas = Array(perguntas.length).fill(null);
+
+const textoPergunta = document.getElementById("texto-pergunta");
+const opcoesEl = document.getElementById("opcoes");
+const continuar = document.getElementById("continuar");
+const aviso = document.getElementById("aviso");
+const barra = document.getElementById("barra");
+const porcentagem = document.getElementById("porcentagem");
+const contador = document.getElementById("contador");
+const barraAcessivel = document.getElementById("barra-acessivel");
+
+function renderizarPergunta() {
+  const pergunta = perguntas[perguntaAtual];
+
+  textoPergunta.textContent = pergunta.texto;
+  opcoesEl.replaceChildren();
+  aviso.textContent = "Escolha uma opção para continuar 💗";
+  continuar.disabled = respostas[perguntaAtual] === null;
+
+  pergunta.opcoes.forEach((opcao, indice) => {
+    const botao = document.createElement("button");
+    botao.type = "button";
+    botao.className = "opcao";
+    botao.textContent = opcao;
+
+    if (respostas[perguntaAtual] === indice) {
+      botao.classList.add("selecionada");
+      botao.setAttribute("aria-pressed", "true");
+    } else {
+      botao.setAttribute("aria-pressed", "false");
     }
 
-    function criarCoracao() {
-      const coracao = document.createElement("div");
-      coracao.className = "coracao";
-      coracao.textContent = Math.random() > 0.5 ? "💗" : "💕";
-      coracao.style.left = Math.random() * 100 + "vw";
-      coracao.style.fontSize = (16 + Math.random() * 18) + "px";
-      coracao.style.animationDuration = (5 + Math.random() * 4) + "s";
+    botao.addEventListener("click", () => {
+      respostas[perguntaAtual] = indice;
 
-      document.body.appendChild(coracao);
+      opcoesEl.querySelectorAll(".opcao").forEach(item => {
+        item.classList.remove("selecionada");
+        item.setAttribute("aria-pressed", "false");
+      });
 
-      setTimeout(() => coracao.remove(), 9000);
-    }
+      botao.classList.add("selecionada");
+      botao.setAttribute("aria-pressed", "true");
+      continuar.disabled = false;
+      aviso.textContent = "Resposta escolhida! Pode continuar 💕";
+    });
 
-    setInterval(criarCoracao, 650);
-  </script>
+    opcoesEl.appendChild(botao);
+  });
+
+  contador.textContent =
+    "Pergunta " + (perguntaAtual + 1) + " de " + perguntas.length;
+
+  const progresso = Math.round(
+    (perguntaAtual / perguntas.length) * 100
+  );
+
+  barra.style.width = progresso + "%";
+  porcentagem.textContent = progresso + "%";
+  barraAcessivel.setAttribute("aria-valuenow", progresso);
+
+  continuar.textContent =
+    perguntaAtual === perguntas.length - 1
+      ? "Desbloquear meu cantinho 💗"
+      : "Próxima pergunta 🌸";
+}
+
+continuar.addEventListener("click", () => {
+  if (respostas[perguntaAtual] === null) {
+    aviso.textContent = "Escolha uma resposta primeiro 💗";
+    return;
+  }
+
+  if (perguntaAtual < perguntas.length - 1) {
+    perguntaAtual++;
+    renderizarPergunta();
+    return;
+  }
+
+  desbloquearSite();
+});
+
+function desbloquearSite() {
+  document.getElementById("entrada").style.display = "none";
+  document.getElementById("site").style.display = "block";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  barra.style.width = "100%";
+  porcentagem.textContent = "100%";
+  barraAcessivel.setAttribute("aria-valuenow", 100);
+
+  iniciarCoracoes();
+}
+
+function mostrarSurpresa() {
+  const mensagem = document.getElementById("mensagem-surpresa");
+  const botao = document.getElementById("botao-surpresa");
+
+  const aberta = mensagem.style.display === "block";
+  mensagem.style.display = aberta ? "none" : "block";
+  botao.textContent = aberta
+    ? "Abrir surpresa 💗"
+    : "Fechar surpresa 💌";
+}
+
+let coracoesIniciados = false;
+
+function iniciarCoracoes() {
+  if (coracoesIniciados) return;
+  coracoesIniciados = true;
+
+  setInterval(() => {
+    if (document.hidden) return;
+
+    const coracao = document.createElement("div");
+    coracao.className = "coracao";
+
+    const emojis = ["💗", "💕", "♡", "💖", "🌸"];
+    coracao.textContent =
+      emojis[Math.floor(Math.random() * emojis.length)];
+
+    coracao.style.left = Math.random() * 100 + "vw";
+    coracao.style.fontSize = (16 + Math.random() * 18) + "px";
+    coracao.style.animationDuration = (6 + Math.random() * 5) + "s";
+
+    document.body.appendChild(coracao);
+
+    setTimeout(() => coracao.remove(), 12000);
+  }, 650);
+}
+
+renderizarPergunta();
+</script>
+
 </body>
 </html>
