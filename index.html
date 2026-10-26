@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0f5">
+  <title>Para Lavínea 💗</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #fff7fa;
+      color: #75485b;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      min-height: 100vh;
+      padding: 30px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fff8fb, #ffdeeb, #f1e7ff);
+      position: relative;
+    }
+
+    .flor {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(42px, 10vw, 72px);
+      font-weight: normal;
+      color: #cc6489;
+      margin: 18px 0;
+    }
+
+    h2 {
+      color: #c45f85;
+      font-weight: normal;
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .subtitulo {
+      max-width: 440px;
+    }
+
+    .botao {
+      display: inline-block;
+      border: none;
+      border-radius: 30px;
+      background: #d96e96;
+      color: white;
+      padding: 14px 24px;
+      font-size: 16px;
+      font-family: inherit;
+      cursor: pointer;
+      margin: 12px 5px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px #c45f8525;
+    }
+
+    .botao:active {
+      transform: scale(0.97);
+    }
+
+    section {
+      padding: 65px 20px;
+    }
+
+    .carta {
+      max-width: 650px;
+      margin: 25px auto;
+      padding: 25px;
+      border: 1px solid #f4d3e0;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px #b75e7912;
+      text-align: left;
+    }
+
+    .assinatura {
+      color: #c45f85;
+      font-style: italic;
+    }
+
+    .decoracao {
+      font-size: 25px;
+      letter-spacing: 8px;
+    }
+
+    .fotos {
+      max-width: 850px;
+      margin: 25px auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .foto {
+      min-height: 190px;
+      border: 2px dashed #e6a5bd;
+      border-radius: 18px;
+      background: #ffebf2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .foto span {
+      margin-top: 8px;
+    }
+
+    .surpresa {
+      background: linear-gradient(135deg, #f6edff, #ffe7ef);
+    }
+
+    .presente {
+      font-size: 70px;
+      margin: 20px;
+    }
+
+    #mensagem {
+      display: none;
+      max-width: 540px;
+      padding: 24px;
+      margin: 25px auto;
+      border-radius: 20px;
+      background: white;
+      animation: aparecer 0.6s ease;
+    }
+
+    .musica {
+      max-width: 550px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 20px;
+    }
+
+    footer {
+      padding: 28px 15px;
+      background: #fffafc;
+      color: #b76c87;
+    }
+
+    .coracao {
+      position: fixed;
+      bottom: -35px;
+      z-index: 10;
+      pointer-events: none;
+      color: #e98caf;
+      animation: subir 7s linear forwards;
+    }
+
+    @keyframes subir {
+      to {
+        transform: translateY(-115vh) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .fotos {
+        grid-template-columns: 1fr;
+      }
+
+      .foto {
+        min-height: 150px;
+      }
+
+      section {
+        padding: 48px 17px;
+      }
+
+      .carta {
+        padding: 21px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <p class="flor">🌷 ♡ 🌷</p>
+
+    <p>UM CANTINHO FEITO COM CARINHO</p>
+
+    <h1>Para Lavínea 💗</h1>
+
+    <p class="subtitulo">
+      Entre tantas coisas bonitas neste mundo,
+      conhecer você é uma daquelas que deixam
+      os dias mais especiais.
+    </p>
+
+    <a class="botao" href="#carta">
+      Você tem uma cartinha 💌
+    </a>
+
+    <p>♡ feito especialmente para você ♡</p>
+  </header>
+
+  <section id="carta">
+    <p class="decoracao">♡ 🌷 ♡</p>
+
+    <h2>Uma cartinha para você</h2>
+
+    <div class="carta">
+      <p>Oi, Lavínea, meu bem! 💗</p>
+
+      <p>
+        Preparei este cantinho pensando em você.
+        Queria fazer algo diferente, uma lembrancinha
+        que pudesse guardar um pouquinho do carinho
+        que sinto por você.
+      </p>
+
+      <p>
+        Espero que esta página consiga arrancar um
+        sorriso seu e que, quando você voltar aqui,
+        encontre um motivo para sorrir novamente.
+      </p>
+
+      <p>
+        Quero aproveitar os momentos ao seu lado,
+        conhecer cada vez mais a pessoa incrível que
+        você é e construir lembranças bonitas com você.
+      </p>
+
+      <p>
+        Não precisa existir uma ocasião especial para
+        demonstrar carinho. Às vezes, são os pequenos
+        detalhes que tornam tudo mais bonito.
+      </p>
+
+      <p>
+        E este site é um desses pequenos detalhes,
+        feito especialmente para você. 🌷
+      </p>
+
+      <p class="assinatura">
+        Com muito carinho, para Lavínea. ♡
+      </p>
+    </div>
+  </section>
+
+  <section id="fotos">
+    <p class="decoracao">📸 ♡ 📸</p>
+
+    <h2>Nossas lembranças</h2>
+
+    <p>
+      Um espaço reservado para guardar
+      nossos momentos favoritos.
+    </p>
+
+    <div class="fotos">
+      <div class="foto">
+        <div style="font-size:42px">🌸</div>
+        <span>Nossa lembrança favorita</span>
+      </div>
+
+      <div class="foto">
+        <div style="font-size:42px">💗</div>
+        <span>Um momento especial</span>
+      </div>
+
+      <div class="foto">
+        <div style="font-size:42px">🧸</div>
+        <span>Uma recordação nossa</span>
+      </div>
+    </div>
+
+    <p>
+      Depois podemos colocar nossas fotos de verdade aqui! 💕
+    </p>
+  </section>
+
+  <section class="surpresa" id="surpresa">
+    <p class="decoracao">🎀 ♡ 🎀</p>
+
+    <h2>Uma surpresa para você</h2>
+
+    <p>
+      Lavínea, tem uma mensagem escondidinha aqui.
+    </p>
+
+    <div class="presente">🎁</div>
+
+    <button class="botao" onclick="abrirSurpresa()">
+      Abrir meu presentinho 💝
+    </button>
+
+    <div id="mensagem">
+      <h2>Surpresa! 💗</h2>
+
+      <p>
+        Lavínea, espero que você nunca se esqueça
+        de que merece carinho, respeito, felicidade
+        e muitos motivos para sorrir.
+      </p>
+
+      <p>
+        Que seus dias sejam cheios de coisas boas,
+        sonhos realizados e momentos que façam
+        seu coração ficar quentinho. 🌷
+      </p>
+
+      <p>Você merece muitas coisas bonitas! ♡</p>
+    </div>
+  </section>
+
+  <section id="musica">
+    <p class="decoracao">🎶 ♡ 🎶</p>
+
+    <h2>Nossa música</h2>
+
+    <div class="musica">
+      <p style="font-size:40px">🎧</p>
+
+      <p>
+        Este espaço está reservado para uma música
+        especial que escolheremos depois.
+      </p>
+
+      <p>Uma trilha sonora para nossas lembranças. 💕</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Feito com carinho para Lavínea 💗</p>
+    <p>🌷 Que nunca faltem motivos para sorrir. 🌷</p>
+  </footer>
+
+  <script>
+    function abrirSurpresa() {
+      const mensagem = document.getElementById("mensagem");
+
+      mensagem.style.display = "block";
+
+      mensagem.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+
+    function criarCoracao() {
+      const coracao = document.createElement("span");
+
+      coracao.className = "coracao";
+
+      const simbolos = ["♡", "♥", "💕", "ღ"];
+
+      coracao.textContent =
+        simbolos[Math.floor(Math.random() * simbolos.length)];
+
+      coracao.style.left = Math.random() * 100 + "vw";
+
+      coracao.style.fontSize =
+        (16 + Math.random() * 17) + "px";
+
+      document.body.appendChild(coracao);
+
+      setTimeout(function () {
+        coracao.remove();
+      }, 7000);
+    }
+
+    setInterval(criarCoracao, 800);
+  </script>
+
+</body>
+</html>
