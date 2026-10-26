@@ -8,13 +8,9 @@
   <title>Para Lavínea 💗</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -33,13 +29,9 @@
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #fff8fb, #ffdeeb, #f1e7ff);
-      position: relative;
     }
 
-    .flor {
-      font-size: 48px;
-      margin: 0;
-    }
+    .flor { font-size: 48px; margin: 0; }
 
     h1 {
       font-size: clamp(42px, 10vw, 72px);
@@ -59,9 +51,7 @@
       line-height: 1.9;
     }
 
-    .subtitulo {
-      max-width: 440px;
-    }
+    .subtitulo { max-width: 440px; }
 
     .botao {
       display: inline-block;
@@ -78,13 +68,7 @@
       box-shadow: 0 5px 15px #c45f8525;
     }
 
-    .botao:active {
-      transform: scale(0.97);
-    }
-
-    section {
-      padding: 65px 20px;
-    }
+    section { padding: 60px 20px; }
 
     .carta {
       max-width: 650px;
@@ -92,7 +76,7 @@
       padding: 25px;
       border: 1px solid #f4d3e0;
       border-radius: 20px;
-      background: #ffffff;
+      background: white;
       box-shadow: 0 10px 30px #b75e7912;
       text-align: left;
     }
@@ -125,28 +109,13 @@
       justify-content: center;
       align-items: center;
       padding: 12px;
-      overflow: hidden;
-    }
-
-    .foto img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .foto span {
-      margin-top: 8px;
     }
 
     .surpresa {
       background: linear-gradient(135deg, #f6edff, #ffe7ef);
     }
 
-    .presente {
-      font-size: 70px;
-      margin: 20px;
-    }
+    .presente { font-size: 70px; margin: 20px; }
 
     #mensagem {
       display: none;
@@ -155,7 +124,6 @@
       margin: 25px auto;
       border-radius: 20px;
       background: white;
-      animation: aparecer 0.6s ease;
     }
 
     .musica {
@@ -164,6 +132,16 @@
       padding: 20px;
       background: white;
       border-radius: 20px;
+      box-shadow: 0 10px 30px #b75e7912;
+    }
+
+    .player {
+      width: 100%;
+      max-width: 450px;
+      height: 180px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 12px;
     }
 
     footer {
@@ -188,33 +166,11 @@
       }
     }
 
-    @keyframes aparecer {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @media (max-width: 600px) {
-      .fotos {
-        grid-template-columns: 1fr;
-      }
-
-      .foto {
-        min-height: 150px;
-      }
-
-      section {
-        padding: 48px 17px;
-      }
-
-      .carta {
-        padding: 21px;
-      }
+      .fotos { grid-template-columns: 1fr; }
+      .foto { min-height: 150px; }
+      section { padding: 45px 17px; }
+      .carta { padding: 21px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -230,7 +186,6 @@
 
   <header>
     <p class="flor">🌷 ♡ 🌷</p>
-
     <p>UM CANTINHO FEITO COM CARINHO</p>
 
     <h1>Para Lavínea 💗</h1>
@@ -250,7 +205,6 @@
 
   <section id="carta">
     <p class="decoracao">♡ 🌷 ♡</p>
-
     <h2>Uma cartinha para você</h2>
 
     <div class="carta">
@@ -294,7 +248,6 @@
 
   <section id="fotos">
     <p class="decoracao">📸 ♡ 📸</p>
-
     <h2>Nossas lembranças</h2>
 
     <p>
@@ -304,34 +257,28 @@
 
     <div class="fotos">
       <div class="foto">
-        <div style="font-size:42px">🌸</div>
+        <span style="font-size:42px">🌸</span>
         <span>Nossa lembrança favorita</span>
       </div>
 
       <div class="foto">
-        <div style="font-size:42px">💗</div>
+        <span style="font-size:42px">💗</span>
         <span>Um momento especial</span>
       </div>
 
       <div class="foto">
-        <div style="font-size:42px">🧸</div>
+        <span style="font-size:42px">🧸</span>
         <span>Uma recordação nossa</span>
       </div>
     </div>
 
-    <p>
-      Depois podemos colocar nossas fotos de verdade aqui! 💕
-    </p>
+    <p>Depois podemos colocar nossas fotos de verdade aqui! 💕</p>
   </section>
 
   <section class="surpresa" id="surpresa">
     <p class="decoracao">🎀 ♡ 🎀</p>
-
     <h2>Uma surpresa para você</h2>
-
-    <p>
-      Lavínea, tem uma mensagem escondidinha aqui.
-    </p>
+    <p>Lavínea, tem uma mensagem escondidinha aqui.</p>
 
     <div class="presente">🎁</div>
 
@@ -360,18 +307,31 @@
 
   <section id="musica">
     <p class="decoracao">🎶 ♡ 🎶</p>
-
-    <h2>Nossa música</h2>
+    <h2>Nossa música 💗</h2>
 
     <div class="musica">
       <p style="font-size:40px">🎧</p>
+      <h3>#pensando</h3>
+      <p>chard la plaga</p>
+
+      <iframe
+        class="player"
+        src="https://audiomack.com/embed/song/chard-la-plaga/pensando"
+        title="Ouvir #pensando — chard la plaga"
+        scrolling="no"
+        allow="autoplay"
+        loading="lazy">
+      </iframe>
 
       <p>
-        Este espaço está reservado para uma música
-        especial que escolheremos depois.
+        <a
+          href="https://audiomack.com/chard-la-plaga/song/pensando"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color:#c45f85">
+          Ouvir diretamente no Audiomack 🎵
+        </a>
       </p>
-
-      <p>Uma trilha sonora para nossas lembranças. 💕</p>
     </div>
   </section>
 
@@ -394,7 +354,6 @@
 
     function criarCoracao() {
       const coracao = document.createElement("span");
-
       coracao.className = "coracao";
 
       const simbolos = ["♡", "♥", "💕", "ღ"];
@@ -403,13 +362,12 @@
         simbolos[Math.floor(Math.random() * simbolos.length)];
 
       coracao.style.left = Math.random() * 100 + "vw";
-
       coracao.style.fontSize =
         (16 + Math.random() * 17) + "px";
 
       document.body.appendChild(coracao);
 
-      setTimeout(function () {
+      setTimeout(function() {
         coracao.remove();
       }, 7000);
     }
