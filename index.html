@@ -4,376 +4,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fff0f5">
   <title>Para Lavínea 💗</title>
 
   <style>
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: #fff7fa;
-      color: #75485b;
+      font-family: Georgia, serif;
+      color: #713b60;
       text-align: center;
+      background: linear-gradient(135deg, #ffe1ed, #eee2ff, #fff1f6);
+      min-height: 100vh;
       overflow-x: hidden;
     }
 
     header {
-      min-height: 100vh;
-      padding: 30px 22px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #fff8fb, #ffdeeb, #f1e7ff);
+      padding: 40px 18px 20px;
     }
 
-    .flor { font-size: 48px; margin: 0; }
-
     h1 {
-      font-size: clamp(42px, 10vw, 72px);
-      font-weight: normal;
-      color: #cc6489;
-      margin: 18px 0;
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitulo {
+      font-size: 1.05rem;
+    }
+
+    .cartao {
+      background: rgba(255,255,255,0.82);
+      margin: 18px auto;
+      padding: 25px 20px;
+      width: 90%;
+      max-width: 520px;
+      border-radius: 24px;
+      box-shadow: 0 8px 25px #c78bb633;
     }
 
     h2 {
-      color: #c45f85;
-      font-weight: normal;
-      font-size: 30px;
+      color: #c0528c;
     }
 
     p {
-      font-size: 17px;
-      line-height: 1.9;
+      line-height: 1.8;
     }
 
-    .subtitulo { max-width: 440px; }
-
-    .botao {
-      display: inline-block;
-      border: none;
-      border-radius: 30px;
-      background: #d96e96;
+    button {
+      background: #e875aa;
       color: white;
-      padding: 14px 24px;
-      font-size: 16px;
-      font-family: inherit;
-      cursor: pointer;
-      margin: 12px 5px;
-      text-decoration: none;
-      box-shadow: 0 5px 15px #c45f8525;
-    }
-
-    section { padding: 60px 20px; }
-
-    .carta {
-      max-width: 650px;
-      margin: 25px auto;
-      padding: 25px;
-      border: 1px solid #f4d3e0;
-      border-radius: 20px;
-      background: white;
-      box-shadow: 0 10px 30px #b75e7912;
-      text-align: left;
-    }
-
-    .assinatura {
-      color: #c45f85;
-      font-style: italic;
-    }
-
-    .decoracao {
-      font-size: 25px;
-      letter-spacing: 8px;
-    }
-
-    .fotos {
-      max-width: 850px;
-      margin: 25px auto;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .foto {
-      min-height: 190px;
-      border: 2px dashed #e6a5bd;
-      border-radius: 18px;
-      background: #ffebf2;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 12px;
-    }
-
-    .surpresa {
-      background: linear-gradient(135deg, #f6edff, #ffe7ef);
-    }
-
-    .presente { font-size: 70px; margin: 20px; }
-
-    #mensagem {
-      display: none;
-      max-width: 540px;
-      padding: 24px;
-      margin: 25px auto;
-      border-radius: 20px;
-      background: white;
-    }
-
-    .musica {
-      max-width: 550px;
-      margin: auto;
-      padding: 20px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px #b75e7912;
-    }
-
-    .player {
-      width: 100%;
-      max-width: 450px;
-      height: 180px;
       border: none;
-      border-radius: 12px;
-      margin-top: 12px;
+      border-radius: 25px;
+      padding: 13px 22px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 10px;
     }
 
-    footer {
-      padding: 28px 15px;
-      background: #fffafc;
-      color: #b76c87;
+    button:hover {
+      background: #ca528c;
+    }
+
+    #surpresa {
+      display: none;
+      margin-top: 18px;
+      font-size: 1.1rem;
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+    }
+
+    .rodape {
+      padding: 25px 12px;
     }
 
     .coracao {
       position: fixed;
-      bottom: -35px;
-      z-index: 10;
+      bottom: -30px;
       pointer-events: none;
-      color: #e98caf;
       animation: subir 7s linear forwards;
+      z-index: -1;
     }
 
     @keyframes subir {
-      to {
-        transform: translateY(-115vh) rotate(25deg);
-        opacity: 0;
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
       }
-    }
-
-    @media (max-width: 600px) {
-      .fotos { grid-template-columns: 1fr; }
-      .foto { min-height: 150px; }
-      section { padding: 45px 17px; }
-      .carta { padding: 21px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
+      to {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
       }
     }
   </style>
 </head>
 
 <body>
-
   <header>
-    <p class="flor">🌷 ♡ 🌷</p>
-    <p>UM CANTINHO FEITO COM CARINHO</p>
-
     <h1>Para Lavínea 💗</h1>
-
-    <p class="subtitulo">
-      Entre tantas coisas bonitas neste mundo,
-      conhecer você é uma daquelas que deixam
-      os dias mais especiais.
-    </p>
-
-    <a class="botao" href="#carta">
-      Você tem uma cartinha 💌
-    </a>
-
-    <p>♡ feito especialmente para você ♡</p>
+    <p class="subtitulo">Um cantinho feito especialmente para você 🌷</p>
   </header>
 
-  <section id="carta">
-    <p class="decoracao">♡ 🌷 ♡</p>
-    <h2>Uma cartinha para você</h2>
-
-    <div class="carta">
-      <p>Oi, Lavínea, meu bem! 💗</p>
-
-      <p>
-        Preparei este cantinho pensando em você.
-        Queria fazer algo diferente, uma lembrancinha
-        que pudesse guardar um pouquinho do carinho
-        que sinto por você.
-      </p>
-
-      <p>
-        Espero que esta página consiga arrancar um
-        sorriso seu e que, quando você voltar aqui,
-        encontre um motivo para sorrir novamente.
-      </p>
-
-      <p>
-        Quero aproveitar os momentos ao seu lado,
-        conhecer cada vez mais a pessoa incrível que
-        você é e construir lembranças bonitas com você.
-      </p>
-
-      <p>
-        Não precisa existir uma ocasião especial para
-        demonstrar carinho. Às vezes, são os pequenos
-        detalhes que tornam tudo mais bonito.
-      </p>
-
-      <p>
-        E este site é um desses pequenos detalhes,
-        feito especialmente para você. 🌷
-      </p>
-
-      <p class="assinatura">
-        Com muito carinho, para Lavínea. ♡
-      </p>
-    </div>
-  </section>
-
-  <section id="fotos">
-    <p class="decoracao">📸 ♡ 📸</p>
-    <h2>Nossas lembranças</h2>
+  <section class="cartao">
+    <h2>Uma cartinha para você 💌</h2>
 
     <p>
-      Um espaço reservado para guardar
-      nossos momentos favoritos.
+      Lavínea, fiz este pequeno cantinho para guardar um pouco
+      do carinho que tenho por você. Espero que cada detalhe
+      te faça sorrir e lembre o quanto você é especial. 💕
     </p>
 
-    <div class="fotos">
-      <div class="foto">
-        <span style="font-size:42px">🌸</span>
-        <span>Nossa lembrança favorita</span>
-      </div>
-
-      <div class="foto">
-        <span style="font-size:42px">💗</span>
-        <span>Um momento especial</span>
-      </div>
-
-      <div class="foto">
-        <span style="font-size:42px">🧸</span>
-        <span>Uma recordação nossa</span>
-      </div>
-    </div>
-
-    <p>Depois podemos colocar nossas fotos de verdade aqui! 💕</p>
+    <p>
+      Entre palavras, músicas e pequenos momentos, quero que
+      este site seja uma lembrança bonita para você. 🌸
+    </p>
   </section>
 
-  <section class="surpresa" id="surpresa">
-    <p class="decoracao">🎀 ♡ 🎀</p>
-    <h2>Uma surpresa para você</h2>
-    <p>Lavínea, tem uma mensagem escondidinha aqui.</p>
+  <section class="cartao">
+    <h2>Uma surpresa para você 🎀</h2>
 
-    <div class="presente">🎁</div>
+    <p>Tem uma mensagem escondida aqui...</p>
 
-    <button class="botao" onclick="abrirSurpresa()">
-      Abrir meu presentinho 💝
+    <button onclick="mostrarSurpresa()">
+      Abrir surpresa 💗
     </button>
 
-    <div id="mensagem">
-      <h2>Surpresa! 💗</h2>
-
-      <p>
-        Lavínea, espero que você nunca se esqueça
-        de que merece carinho, respeito, felicidade
-        e muitos motivos para sorrir.
-      </p>
-
-      <p>
-        Que seus dias sejam cheios de coisas boas,
-        sonhos realizados e momentos que façam
-        seu coração ficar quentinho. 🌷
-      </p>
-
-      <p>Você merece muitas coisas bonitas! ♡</p>
+    <div id="surpresa">
+      Você merece coisas lindas, momentos felizes
+      e muitos motivos para sorrir. 💖🌷
     </div>
   </section>
 
-  <section id="musica">
-    <p class="decoracao">🎶 ♡ 🎶</p>
-    <h2>Nossa música 💗</h2>
+  <section class="cartao">
+    <h2>Nossa música 🎧</h2>
 
-    <div class="musica">
-      <p style="font-size:40px">🎧</p>
-      <h3>#pensando</h3>
-      <p>chard la plaga</p>
+    <p>#pensando — chard la plaga</p>
 
-      <iframe
-        class="player"
-        src="https://audiomack.com/embed/song/chard-la-plaga/pensando"
-        title="Ouvir #pensando — chard la plaga"
-        scrolling="no"
-        allow="autoplay"
-        loading="lazy">
-      </iframe>
+    <iframe
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1E4uX1ND1v1Ym5?utm_source=generator"
+      height="352"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
 
-      <p>
-        <a
-          href="https://audiomack.com/chard-la-plaga/song/pensando"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="color:#c45f85">
-          Ouvir diretamente no Audiomack 🎵
-        </a>
-      </p>
-    </div>
+    <p>
+      <a
+        href="https://open.spotify.com/search/%23pensando%20chard%20la%20plaga"
+        target="_blank"
+        rel="noopener noreferrer">
+        Abrir #pensando no Spotify 🎵
+      </a>
+    </p>
   </section>
 
-  <footer>
-    <p>Feito com carinho para Lavínea 💗</p>
-    <p>🌷 Que nunca faltem motivos para sorrir. 🌷</p>
+  <footer class="rodape">
+    Feito com carinho para Lavínea 💗
   </footer>
 
   <script>
-    function abrirSurpresa() {
-      const mensagem = document.getElementById("mensagem");
-
-      mensagem.style.display = "block";
-
-      mensagem.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
+    function mostrarSurpresa() {
+      const surpresa = document.getElementById("surpresa");
+      surpresa.style.display =
+        surpresa.style.display === "block" ? "none" : "block";
     }
 
     function criarCoracao() {
-      const coracao = document.createElement("span");
+      const coracao = document.createElement("div");
       coracao.className = "coracao";
-
-      const simbolos = ["♡", "♥", "💕", "ღ"];
-
-      coracao.textContent =
-        simbolos[Math.floor(Math.random() * simbolos.length)];
-
+      coracao.textContent = Math.random() > 0.5 ? "💗" : "💕";
       coracao.style.left = Math.random() * 100 + "vw";
-      coracao.style.fontSize =
-        (16 + Math.random() * 17) + "px";
+      coracao.style.fontSize = (16 + Math.random() * 18) + "px";
+      coracao.style.animationDuration = (5 + Math.random() * 4) + "s";
 
       document.body.appendChild(coracao);
 
-      setTimeout(function() {
-        coracao.remove();
-      }, 7000);
+      setTimeout(() => coracao.remove(), 9000);
     }
 
-    setInterval(criarCoracao, 800);
+    setInterval(criarCoracao, 650);
   </script>
-
 </body>
 </html>
